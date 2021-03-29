@@ -1,0 +1,78 @@
+<div class="task-view">
+
+  <div class="task-manager-container">
+
+    <!-- Projects (Left side) of TaskManager -->
+    <div class="project-container">
+
+      <div class="project-welcome">
+        <h2>Hi Rogelio</h2>
+        <small>Welcome back to TaskManager, we missed you!</small>
+      </div>
+
+      <div class="project-content">
+
+        <!-- Number of Prjects created changes dynamically -->
+        <p>Projects (<span>2</span>)</p>
+
+        <div class="project-list">
+
+          <!-- Project Cards -->
+          <div 
+            class="project-loop" 
+            *ngFor="let projectElem of projects">
+            <app-project-card [project]="projectElem"></app-project-card>
+          </div>
+
+          <!-- Card to add new project (6 project limit) -->
+          <app-add-project-card (click)="addProjectBtn = !addProjectBtn"></app-add-project-card>
+
+          <!-- Add new project box / page-->
+          <app-create-page 
+            *ngIf="addProjectBtn"
+            [title]="'Project'"
+            (exit)="addProjectBtn = !addProjectBtn"
+            (add)="createProject($event)">
+          </app-create-page>
+
+        </div>
+      </div>
+    </div>
+
+
+    <!-- Tasks (right side) of TaskManager -->
+    <div class="task-list-container">
+
+      <!-- Project Info -->
+      <div class="task-header">
+        <h4>Cyber Punk</h4>
+        <small>
+          This is a text decribing what the tasks in this list are for and maybe when they have to be completed.
+        </small>
+      </div>
+
+      <!-- Today List -->
+      <div class="list-content">
+        <div class="list-header">
+          <p>Tasks</p>
+        </div>
+
+        <div class="task-list today" *ngFor="let taskElem of tasks">
+          <app-task-item [task]="taskElem.title"></app-task-item>
+        </div>
+      </div>
+
+      <div class="add-task-btn" (click)="addTaskBtn = !addTaskBtn">
+        <h3>+</h3>
+      </div>
+
+      <app-create-page 
+        *ngIf="addTaskBtn"
+        [title]="'Task'"
+        (exit)="addTaskBtn = !addTaskBtn"
+        (add)="createTask($event)">
+      </app-create-page>
+
+    </div>
+  </div>
+</div>

@@ -1,0 +1,18 @@
+<div 
+    class="create-bg" 
+    [ngClass]="{'task-bg': title == 'Task', 'project-bg': title == 'Project'}">
+    
+    <div class="content">
+
+        <p class="title">Create a new {{title}}</p>
+
+        <div class="create-input">
+            <input type="text" #createInput>
+            <button (click)="inputCreated(createInput.value)">ADD</button>
+        </div>
+
+        <div class="exitBtn" (click)='exitWindow()'>
+            <p>&#215;</p>
+        </div>
+    </div>
+</div>

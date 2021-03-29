@@ -1,0 +1,50 @@
+.project-card{
+  margin-right: 15px;
+  margin-bottom: 15px;
+  width: 100px;
+  height: 130px;
+  cursor: pointer;
+}
+.image-border{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 94px;
+  width: 94px;
+  border: solid 3px transparent;
+  border-radius: 20px;
+  transition: .22s ease;
+}
+.image{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 82px;
+  width: 82px;
+  border-radius: 15px;
+  color: var(--color-one);
+  background: cyan;
+}
+.title{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 0;
+  height: 30px;
+  width: 100%;
+  color: var(--color-check2);
+}
+
+/* Hover Effect */
+.image-border:hover{
+  border: solid 3px cyan;
+}
+
+/* Active Effect */
+.project-card:active .image{
+  transform: scale(.95);
+  outline: none;
+}
+.project-card:focus{
+  outline: none;
+}
